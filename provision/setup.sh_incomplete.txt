@@ -1,0 +1,41 @@
+sudo apt-get update
+sudo apt-get install apache2 git -y
+
+sudo chmod -R 755 /var/www
+
+git config --global user.name "Your Name"
+git config --global user.email "youremail@domain.com"
+
+sudo add-apt-repository ppa:ondrej/php -y
+echo -en "\n\n"
+
+sudo apt-get install -y language-pack-en-base
+sudo LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php
+
+sudo apt-get update
+
+sudo apt-get install php7.0 php7.0-mysql -y
+sudo apt-get install libapache2-mod-php7.0 php7.0-mcrypt php7.0-bcmath php7.0-mbstring php7.0-curl php7.0-xml php7.0-zip -y
+
+sudo curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer -y
+
+sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password admin'
+sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password admin'
+sudo apt-get install mysql-server -y
+
+sudo mysql_install_db
+sudo mysql_secure_installation
+
+mysql --user=root --password=admin --execure="CREATE DATABASE mautic; GRANT ALL PRIVILEGES ON mautic.* TO 'mautic'@'%' IDENTIFIED BY 'mautic';"
+
+cd /var/www/
+
+git clone https://github.com/mautic/mautic.git
+
+
+sudo a2dissite 000-default.conf
+
+sudo a2ensite mautic.conf
+
+
+
