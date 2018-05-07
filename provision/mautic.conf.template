@@ -1,11 +1,11 @@
 <VirtualHost *:80>
-        #ServerName www.example.com
+    #ServerName www.example.com
 
-        ServerAdmin webmaster@localhost
-        DocumentRoot /var/www/mautic
+    ServerAdmin webmaster@localhost
+    DocumentRoot /var/www/mautic
 
-        ErrorLog ${APACHE_LOG_DIR}/error.log
-        CustomLog ${APACHE_LOG_DIR}/access.log combined
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
 
 	<Directory "/var/www/mautic">	
 		DirectoryIndex index.php
