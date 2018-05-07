@@ -1,1 +1,0 @@
-{"virtualbox":{"/var/www/":{"guestpath":"/var/www","hostpath":"C:/Users/galme/Desktop/Projetos/mautic/src","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"C:/Users/galme/Desktop/Projetos/mautic","disabled":false,"__vagrantfile":true}}}
